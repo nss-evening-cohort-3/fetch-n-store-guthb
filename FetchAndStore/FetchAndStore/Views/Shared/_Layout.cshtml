@@ -41,7 +41,12 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular")
     @RenderSection("scripts", required: false)
-    <script type="text/javascript" src="~/Scripts/app.js"></script>
-    <script type="text/javascript" src="~/Scripts/controller.js"></script>
+    <!-- APP -->  
+    <script type="text/javascript" src="~/App/app.js"></script>
+
+    <!-- DIRECTIVES -->
+
+    <!-- CONTROLLERS LAST -->
+    <script type="text/javascript" src="~/App/Controllers/SearchUrlCtrl.js"></script>
 </body>
 </html>
