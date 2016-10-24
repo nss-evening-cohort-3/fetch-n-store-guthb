@@ -2,21 +2,47 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
+<div ng-controller="SearchUrlCtrl">
     <h1 class="text-center">Fetch & Store</h1>
-    <form class="form-inline ">        
-        <div class="dropdown open">
-            <select class="form-control">
-                <option selected>HTTP METHOD</option>
-                <option value="get">GET</option>
-                <option value="post">POST</option>
-            </select>
-            <input type="text" class="form-control" id="url-input" placeholder="Url to Test >">
-
-            <div class="btn-group-vertical">
-                <button type="submit" class="btn btn-primary btn-lg">Fetch</button>
-                <!--<button type="submit" class="btn btn-primary btn-lg">Submit</button>-->
-            </div>
-       </div>
+    <form> 
+        <div class="container ">  
+            <div class="row" > 
+                <div class="form-group col-sm-2 col-sm-offset-2">           
+                    <select id="methodSelect" ng-model="HttpMethod" class="form-control">               
+                        <option value="get">GET</option>
+                        <option value="post">POST</option>
+                    </select>             
+                    <label for="methodSelect">Http Method</label>
+                </div>
+                <div class="col-sm-4">
+                    <input ng-model="url" type="text" class="form-control" id="url-input" placeholder="Url to Test:">
+                </div>                      
+                <div class="btn-group-vertical col-sm-2 col-sm-offset-1">
+                    <button ng-click="HttpFetcher()" type="submit" class="btn btn-primary btn-sm">Fetch</button>                    
+                </div>
+            </div>            
+        </div>
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>Status Code</th>
+                        <th>URL</th>
+                        <th>Method</th>
+                        <th>Response Time ms</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>401</td>
+                        <td>http://monkeybutt.com</td>
+                        <td>GET</td>
+                        <td>6000</td>
+                        <td><button type="submit" class="btn btn-primary btn-sm">Submit</button></td>
+                    </tr>
+                </table>
+             </div>
+        </div>
     </form>
 </div>
+
+

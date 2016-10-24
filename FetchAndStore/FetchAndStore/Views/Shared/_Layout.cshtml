@@ -6,9 +6,10 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/angular")
 
 </head>
-<body ng-app>
+<body ng-app="UrlSearchForm">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -39,14 +40,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/angular")
     @RenderSection("scripts", required: false)
-    <!-- APP -->  
-    <script type="text/javascript" src="~/App/app.js"></script>
-
-    <!-- DIRECTIVES -->
-
-    <!-- CONTROLLERS LAST -->
-    <script type="text/javascript" src="~/App/Controllers/SearchUrlCtrl.js"></script>
+    
 </body>
 </html>
