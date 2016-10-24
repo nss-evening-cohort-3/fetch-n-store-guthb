@@ -9,8 +9,8 @@
             <div class="row" > 
                 <div class="form-group col-sm-2 col-sm-offset-2">           
                     <select id="methodSelect" ng-model="HttpMethod" class="form-control">               
-                        <option value="get">GET</option>
-                        <option value="post">POST</option>
+                        <option value="GET">GET</option>
+                        <option value="HEAD">HEAD</option>
                     </select>             
                     <label for="methodSelect">Http Method</label>
                 </div>
@@ -33,11 +33,11 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td>401</td>
-                        <td>http://monkeybutt.com</td>
-                        <td>GET</td>
-                        <td>6000</td>
-                        <td><button type="submit" class="btn btn-primary btn-sm">Submit</button></td>
+                        <td>{{status}}</td>
+                        <td>{{url}}</td>
+                        <td>{{HttpMethod}}</td>
+                        <td>{{ResponseTime}}</td>
+                        <td><button type="submit" ng-click="ResponseSave"class="btn btn-primary btn-sm">Store</button></td>
                     </tr>
                 </table>
              </div>
