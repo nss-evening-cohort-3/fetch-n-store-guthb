@@ -10,6 +10,7 @@
 
         //Duration of respose
         var startTime = Date.now();
+        
 
         //call to url based on http method requested 
         $http({ method: $scope.HttpMethod, url: $scope.url }).
