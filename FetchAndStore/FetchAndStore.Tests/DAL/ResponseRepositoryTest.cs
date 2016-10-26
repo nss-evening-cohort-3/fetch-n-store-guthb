@@ -40,10 +40,69 @@ namespace FetchAndStore.Tests.DAL
         }
 
 
-        [TestMethod]
-        public void TestMethod1()
+        [TestInitialize] //runs before any tests
+        public void Intialize()
         {
+            //create
+            mock_context = new Mock<ResponseContext>();
+            mock_response_table = new Mock<DbSet<Response>>();
+            response_list = new List<Response>();  //fake database
+            repo = new ResponseRepository(mock_context.Object);
+
+            ConnectMocksToDataStore();
 
         }
+
+        [TestCleanup] //runs after every test
+        public void TearDown()
+        {
+            repo = null; //reset repo 
+        }
+
+
+        public void RepoEnsureCanCreateInstance()
+        {
+            ResponseRepository repo = new ResponseRepository();
+            Assert.IsNotNull(repo);
+        }
+
+        [TestMethod]
+        public void RepoEnsureRepoHasContext()
+        {
+            ResponseRepository repo = new ResponseRepository();
+            ResponseContext actual_context = repo.Context;
+
+            Assert.IsInstanceOfType(actual_context, typeof(ResponseContext));
+        }
+
+        [TestMethod]
+        public void RepoEnsureWeHaveNoReponses()
+        {
+            //Arrange
+
+            //Act
+            List<Response> some_response = repo.GetResponses();
+            int expected_response_count = 0;
+            int actual_response_count = some_response.Count;
+
+            //Assert
+            Assert.AreEqual(expected_response_count, actual_response_count);
+
+        }
+
+
+
+        [TestMethod]
+        public void RepoEnsureRepoCanStoreReponses()
+        {
+            Response test_response = new Response { ResponseId = 0, URL = "https://google.com", StatusCode = "200", Method = "GET", RequestTime = "5000"};
+            repo.AddResponse(test_response);
+            int expected_response_count = 1;
+            int actual_response_count = repo.GetResponses().Count();
+
+            Assert.AreEqual(expected_response_count, actual_response_count);
+        }
+
     }
+
 }

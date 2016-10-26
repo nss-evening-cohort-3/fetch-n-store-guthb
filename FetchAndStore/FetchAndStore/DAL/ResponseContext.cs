@@ -8,7 +8,7 @@ using FetchAndStore.Models;
 
 namespace FetchAndStore.DAL
 {
-    public class ResponseContext
+    public class ResponseContext : DbContext
     {
         public virtual DbSet<Response> Responses { get; set; }
     }
