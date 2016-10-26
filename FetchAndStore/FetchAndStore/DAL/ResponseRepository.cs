@@ -10,7 +10,6 @@ namespace FetchAndStore.DAL
 {
     public class ResponseRepository
     {
-
         public ResponseContext Context { get; set; }
 
         public ResponseRepository()
@@ -32,7 +31,6 @@ namespace FetchAndStore.DAL
             Context.Responses.Add(_response);
             Context.SaveChanges();
         }
-
 
     }
 }

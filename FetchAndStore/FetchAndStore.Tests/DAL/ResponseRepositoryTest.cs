@@ -89,9 +89,7 @@ namespace FetchAndStore.Tests.DAL
             Assert.AreEqual(expected_response_count, actual_response_count);
 
         }
-
-
-
+        
         [TestMethod]
         public void RepoEnsureRepoCanStoreReponses()
         {
