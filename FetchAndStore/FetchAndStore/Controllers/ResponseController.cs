@@ -27,28 +27,27 @@ namespace FetchAndStore.Controllers
         {
             return "value";
         }
+         
 
         // POST api/<controller>
-        
         public void  Post(Response _response)
         {
             ResponseRepository repo = new ResponseRepository();
-            repo.AddResponse(_response);
-            
+            repo.AddResponse(_response);    
         }
-
         
+
         // PUT api/<controller>/5
         public void Put(int id, [FromBody]string value)
         {
         }
+
 
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
             ResponseRepository repo = new ResponseRepository();
             repo.RemoveResponse(id);
-
         }
     }
 }

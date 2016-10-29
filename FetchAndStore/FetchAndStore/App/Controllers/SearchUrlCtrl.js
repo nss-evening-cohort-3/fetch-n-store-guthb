@@ -10,10 +10,10 @@ app.controller("SearchUrlCtrl", function ($scope, $http) {
     //Function called from action from DOM
     $scope.HttpFetcher = function ( methodPicked, urlEntered ) {
 
-        //Duration of respose
+        //Duration of respose 
         var startTime = Date.now();
         
-        //call to url based on http method requested 
+        //call to url entered based on http method requested 
         $http({ method: $scope.HttpMethod, url: $scope.url }).
         then(function (response) {
             $scope.ResponseTime = (Date.now() - startTime )/1000;
