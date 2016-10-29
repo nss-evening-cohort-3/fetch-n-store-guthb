@@ -22,7 +22,8 @@
                 </div>
             </div>            
         </div>
-        <div class="container">
+        <h3>Responses Captured</h3>
+        <div id ="resposeContainer" class="container">
             <div class="row">
                 <table class="table">
                     <tr>
@@ -37,11 +38,34 @@
                         <td>{{url}}</td>
                         <td>{{HttpMethod}}</td>
                         <td>{{ResponseTime}}</td>
-                        <td><button type="submit" ng-click="ResponseSave"class="btn btn-primary btn-sm">Store</button></td>
+                        <td><button type="submit" ng-click="ResponseSave()"class="btn btn-primary btn-sm">Store</button></td>
                     </tr>
                 </table>
              </div>
         </div>
+        <h3>Stored Responses</h3>
+        <div id="returnContainer" class="container">
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>Status Code</th>
+                        <th>URL</th>
+                        <th>Method</th>
+                        <th>Response Time ms</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="dbResponse in dbResponses">
+                        <td>{{dbResponse.StatusCode}}</td>
+                        <td>{{dbResponse.URL}}</td>
+                        <td>{{dbResponse.Method}}</td>
+                        <td>{{dbResponse.RequestTime}}</td>
+                        <td>{{}}</td>
+                        <td><button type="submit" ng-click="ResponseRemove(dbResponse.ResponseId)"class="btn btn-danger btn-sm">Delete</button></td>
+                    </tr>
+                </table>
+            </div>          
+        </div>
+
     </form>
 </div>
 

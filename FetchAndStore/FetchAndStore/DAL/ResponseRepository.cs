@@ -32,5 +32,12 @@ namespace FetchAndStore.DAL
             Context.SaveChanges();
         }
 
+        public void RemoveResponse(int id)
+        {
+            Response found_response = Context.Responses.FirstOrDefault(r => r.ResponseId == id);
+            Context.Responses.Remove(found_response);
+            Context.SaveChanges();
+        }
+        
     }
 }
